@@ -146,6 +146,7 @@ def convert_train_dataset(tokenizer):
 	print('{} examples found.'.format(num_lines))
 	num_files = max(1, int(num_lines / FLAGS.num_examples_per_tf))
 	print('num files that will be generated: {}'.format(num_files))
+	num_lines = min(num_lines, FLAGS.num_examples_per_tf)
 
 	tfrecord_queue = Queue()
 	train_dataset_file = open(FLAGS.train_dataset_path, 'r')
